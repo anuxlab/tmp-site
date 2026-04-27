@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block header %}
+{{ super() }}
+<div class="md-header-utility" role="navigation" aria-label="Global actions">
+    <button id="export-pdf" class="md-button md-button--secondary header-print-btn" title="Print / Save PDF">
+        {% include ".icons/material/printer.svg" %}
+        <span class="label">PDF</span>
+    </button>
+</div>
+{% endblock %}

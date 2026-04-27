@@ -1,0 +1,198 @@
+{% set profiles = [
+{ 'label': 'IITM BSDS', 'url': 'https://ds.study.iitm.ac.in/student/25F2008305', 'title': 'IITM BS Data Science Profile'
+},
+{ 'label': 'Cloud Skills', 'url':
+'https://www.cloudskillsboost.google/public_profiles/cf693d7f-11be-4a37-a84b-e851d28b255a', 'title': 'Google Cloud
+Skills Boost Profile' },
+{ 'label': 'OpenGenus IQ', 'url': 'https://iq.opengenus.org/author/anurag-prasad/', 'title': 'OpenGenus IQ Author Page'
+}
+] %}
+{% set emails = [
+{ 'label': 'Personal', 'addr': 'er.anuragprasad@gmail.com', 'color': 'blue', 'logo': 'gmail' },
+{ 'label': 'IITM Official', 'addr': '25f2008305@ds.study.iitm.ac.in', 'color': 'maroon' },
+{ 'label': 'DMI Official', 'addr': 'anurag.pdm05009@dmi.ac.in', 'color': 'green' }
+] %}
+
+<footer class="md-footer" data-md-component="footer" aria-label="Global site footer">
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner">
+            <div class="md-footer-custom-meta" aria-label="Profile and contact blocks">
+                <div class="footer-block footer-profiles" aria-label="Profile links">
+                    <span class="footer-heading">Profiles</span>
+                    <ul class="inline-list">
+                        {% for p in profiles %}
+                        <li>
+                            <!-- Previous text link preserved for future use: <a href="{{ p.url }}" rel="noopener" title="{{ p.title }}">{{ p.label }}</a> -->
+                            <a href="{{ p.url }}" rel="noopener" title="{{ p.title }}">
+                                {% if 'IITM' in p.label %}
+                                <img class="profile-logo" src="{{ base_url | default('') }}/assets/logos/iitm.png"
+                                    alt="IITM BSDS" loading="lazy" />
+                                {% elif 'Cloud Skills' in p.label %}
+                                <img class="profile-logo"
+                                    src="{{ base_url | default('') }}/assets/logos/google-cloud.jpg"
+                                    alt="Google Cloud Skills Boost" loading="lazy" />
+                                {% elif 'OpenGenus' in p.label %}
+                                <img class="profile-logo" src="{{ base_url | default('') }}/assets/logos/opengenus.jpg"
+                                    alt="OpenGenus IQ" loading="lazy" />
+                                {% else %}
+                                {{ p.label }}
+                                {% endif %}
+                            </a>
+                        </li>
+                        {% endfor %}
+                        {% if config.extra.social %}
+                        {% for item in config.extra.social %}
+                        <li class="profile-social"><a href="{{ item.link }}" title="{{ item.name }}" rel="noopener">
+                                {% if item.icon %}{% include ".icons/" ~ item.icon ~ ".svg" %}{% else %}{{ item.name
+                                }}{% endif %}
+                            </a></li>
+                        {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="footer-block footer-emails" aria-label="Email addresses">
+                    <span class="footer-heading">Emails</span>
+                    <ul class="inline-list">
+                        {% for e in emails %}
+                        <li>
+                            <a href="mailto:{{ e.addr }}" title="Email ({{ e.label }})" rel="noopener">
+                                <img class="email-badge" loading="lazy" alt="{{ e.label }} Email"
+                                    src="https://img.shields.io/badge/{{ e.label | urlencode }}- -{{ e.color }}?style=flat-square{% if e.logo %}&logo={{ e.logo }}&logoColor=white{% endif %}">
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="md-footer-social" aria-label="Social and copyright">
+                <!-- Social icons moved into Profiles above to show all profiles in one place. -->
+                <div class="md-footer-copyright">&copy; 2025 {{ config.site_author }}</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .md-footer .footer-heading {
+        font-size: .75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        opacity: .65;
+    }
+
+    .md-footer .md-footer-custom-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+    }
+
+    .md-footer .footer-block ul {
+        list-style: none;
+        margin: .25rem 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+    }
+
+    /* Inline list override */
+    .md-footer .footer-block ul.inline-list,
+    .md-footer ul.inline-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .md-footer ul.inline-list li {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .md-footer .footer-block a {
+        font-size: .65rem;
+        text-decoration: none;
+    }
+
+    .md-footer .footer-block a:hover {
+        text-decoration: underline;
+    }
+
+    .md-footer .footer-emails .email-badge {
+        height: 16px;
+        vertical-align: middle;
+    }
+
+    .md-footer .footer-emails ul.inline-list {
+        gap: .35rem;
+    }
+
+    .md-footer .footer-emails a {
+        line-height: 1;
+    }
+
+    /* Size icons when included in Profiles */
+    .md-footer .footer-profiles svg {
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+        fill: currentColor;
+    }
+
+    .md-footer .footer-profiles a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    @media (max-width:700px) {
+        .md-footer .md-footer-custom-meta {
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+    }
+
+    /* Align heading + list on one line, allow wrapping on small screens */
+    .md-footer .footer-block {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .md-footer .footer-heading {
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .md-footer .footer-block ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .5rem;
+        align-items: center;
+    }
+
+    .md-footer .footer-block ul.inline-list,
+    .md-footer ul.inline-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    /* Keep email badge sizing consistent */
+    .md-footer .footer-emails .email-badge {
+        height: 16px;
+        vertical-align: middle;
+    }
+
+    .md-footer .footer-profiles .profile-logo {
+        height: 18px;
+        width: auto;
+        border-radius: 3px;
+        display: inline-block;
+    }
+</style>

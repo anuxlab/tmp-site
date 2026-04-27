@@ -1,0 +1,321 @@
+/* Custom resume-focused tweaks */
+.resume-export-bar button#export-pdf {
+    font-weight: 600;
+}
+
+.sidebar-badges {
+    margin-top: 1.5rem;
+    padding: 0.5rem 0.25rem 0.75rem;
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    font-size: 0.72rem;
+}
+
+.sidebar-badges h3 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem 0;
+    opacity: 0.8;
+}
+
+.sidebar-badges #profile-links-badges img {
+    margin: 2px 3px;
+}
+
+.sidebar-badges .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.sidebar-badges .badge-row.emails {
+    margin-top: 4px;
+}
+
+.sidebar-badges a {
+    text-decoration: none;
+}
+
+.sidebar-badges .badge-section-title {
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.65rem;
+    margin: 0.4rem 0 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.75;
+}
+
+/* Custom blue scrollbar styling */
+:root {
+    --scrollbar-thumb: #1e88e5;
+    /* blue */
+    --scrollbar-thumb-hover: #1565c0;
+    --scrollbar-track: rgba(30, 136, 229, 0.15);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* WebKit */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+    border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Scope sidebars specifically (ensures consistency) */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+    width: 10px;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Inner / nested scrollbars (code blocks, tables, tab panels) */
+.md-typeset pre,
+.md-typeset code,
+.md-typeset .highlight,
+.md-typeset .tabbed-content,
+.md-typeset table,
+.md-content,
+.md-typeset details,
+.md-nav,
+.md-typeset div[style*='overflow'],
+.md-typeset .arithmatex,
+.md-typeset .admonition {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.md-typeset pre::-webkit-scrollbar,
+.md-typeset code::-webkit-scrollbar,
+.md-typeset .highlight::-webkit-scrollbar,
+.md-typeset .tabbed-content::-webkit-scrollbar,
+.md-typeset table::-webkit-scrollbar,
+.md-content::-webkit-scrollbar,
+.md-typeset details::-webkit-scrollbar,
+.md-nav::-webkit-scrollbar,
+.md-typeset div[style*='overflow']::-webkit-scrollbar,
+.md-typeset .admonition::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.md-typeset pre::-webkit-scrollbar-track,
+.md-typeset code::-webkit-scrollbar-track,
+.md-typeset .highlight::-webkit-scrollbar-track,
+.md-typeset .tabbed-content::-webkit-scrollbar-track,
+.md-typeset table::-webkit-scrollbar-track,
+.md-content::-webkit-scrollbar-track,
+.md-typeset details::-webkit-scrollbar-track,
+.md-nav::-webkit-scrollbar-track,
+.md-typeset div[style*='overflow']::-webkit-scrollbar-track,
+.md-typeset .admonition::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+.md-typeset pre::-webkit-scrollbar-thumb,
+.md-typeset code::-webkit-scrollbar-thumb,
+.md-typeset .highlight::-webkit-scrollbar-thumb,
+.md-typeset .tabbed-content::-webkit-scrollbar-thumb,
+.md-typeset table::-webkit-scrollbar-thumb,
+.md-content::-webkit-scrollbar-thumb,
+.md-typeset details::-webkit-scrollbar-thumb,
+.md-nav::-webkit-scrollbar-thumb,
+.md-typeset div[style*='overflow']::-webkit-scrollbar-thumb,
+.md-typeset .admonition::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+}
+
+.md-typeset pre::-webkit-scrollbar-thumb:hover,
+.md-typeset code::-webkit-scrollbar-thumb:hover,
+.md-typeset .highlight::-webkit-scrollbar-thumb:hover,
+.md-typeset .tabbed-content::-webkit-scrollbar-thumb:hover,
+.md-typeset table::-webkit-scrollbar-thumb:hover,
+.md-content::-webkit-scrollbar-thumb:hover,
+.md-typeset details::-webkit-scrollbar-thumb:hover,
+.md-nav::-webkit-scrollbar-thumb:hover,
+.md-typeset div[style*='overflow']::-webkit-scrollbar-thumb:hover,
+.md-typeset .admonition::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Print refinements */
+@media print {
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+    }
+
+    .sidebar-badges {
+        display: none !important;
+    }
+
+    /* Additional print layout cleanup (migrated from inline) */
+    .md-header,
+    .md-sidebar--primary,
+    .md-sidebar--secondary,
+    .resume-export-bar,
+    nav,
+    .md-footer {
+        display: none !important;
+    }
+
+    .md-content {
+        margin: 0 !important;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+}
+
+/* ===== Header polish ===== */
+/* Subtle depth and sheen on the top bar */
+.md-header {
+    background: linear-gradient(90deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, 0)), var(--md-primary-fg-color) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+/* Compact, comfortable header height */
+.md-header__inner {
+    min-height: 3.25rem;
+}
+
+/* Logo sizing and alignment */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 26px;
+    width: auto;
+}
+
+/* Site title treatment */
+.md-header__title {
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+/* Search: make it a pill with soft border */
+.md-search__form {
+    border-radius: 999px;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .08) inset;
+}
+
+.md-search__input::placeholder {
+    opacity: .7;
+}
+
+/* Tabs: softer hover with pill appearance */
+.md-tabs {
+    backdrop-filter: saturate(120%) blur(4px);
+    border-top: 1px solid rgba(255, 255, 255, .06);
+}
+
+.md-tabs__link {
+    border-radius: 999px;
+    padding: .35rem .7rem;
+    transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+
+.md-tabs__link:hover {
+    background: var(--md-default-bg-color);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+}
+
+/* Active tab: subtle filled state instead of thick underline */
+.md-tabs__link--active {
+    background: color-mix(in srgb, var(--md-accent-fg-color) 16%, transparent);
+    color: var(--md-accent-fg-color);
+}
+
+/* Reduce default underline prominence on tabs */
+.md-tabs__link:after {
+    opacity: .3;
+    transform: scaleX(.75);
+}
+
+/* Mobile: increase touch targets for header buttons */
+.md-header__button {
+    border-radius: 8px;
+}
+
+/* ===== Global header utility (PDF button) ===== */
+.md-header-utility {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-left: auto;
+}
+
+.header-print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    padding: .3rem .6rem;
+    border-radius: 999px;
+}
+
+.header-print-btn .label {
+    font-weight: 600;
+    font-size: .75rem;
+}
+
+.md-header-utility svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Remove any leftover spacing from old page-local export bar */
+.resume-export-bar {
+    display: none !important;
+}
+
+/* Keep print rules intact above */
+/* ===== End header polish ===== */
+
+/* Ensure header text/icons are readable */
+.md-header,
+.md-header a,
+.md-header__title,
+.md-header__button,
+.md-header__button svg,
+.md-search__form,
+.md-tabs__link {
+    color: var(--md-primary-bg-color);
+}
+
+/* Search input text contrast on colored header */
+.md-search__input {
+    color: var(--md-primary-bg-color);
+}
+
+.md-search__input::placeholder {
+    color: color-mix(in srgb, var(--md-primary-bg-color) 70%, transparent);
+}

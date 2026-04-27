@@ -1,0 +1,169 @@
+site_name: anuXlab
+site_url: https://anuxlab.github.io
+site_description: Personal blog & portfolio of Anurag Prasad
+site_author: Anurag Prasad
+repo_url: https://github.com/anuxlab/anuxlab.github.io
+repo_name: anuxlab.github.io
+nav:
+  - Home: index.md
+  - Blog: 
+      - Posts: blog/index.md
+  - Learning:
+      - Python Basics (Essential): tutorials/python-basics.md
+      - Advanced Python (Essential): tutorials/advanced-python.md
+      - Data Science (Essential): tutorials/data-science.md
+      - AI / ML (Essential): tutorials/ai-ml.md
+      - Quant Finance (Role-Specific): tutorials/quant-finance.md
+      - Web Development (Nice-to-Have): tutorials/web-development.md
+      - Computer Engineering (Foundational): tutorials/computer-engineering.md
+      - Sample Auth System (Example): tutorials/sample-auth-system.md
+  - Projects:
+      - Overview: projects/index.md
+      - Featured: projects/featured.md
+      - Open Source Projects: projects/open-source.md
+      - AI Projects: projects/ai-projects.md
+      - Data Science Projects: projects/data-science-projects.md
+      - Quant Finance Projects: projects/quant-finance-projects.md
+  - Research:
+      - Publications: research/publications.md
+      - Experiments: research/experiments.md
+      - AI Research: research/ai.md
+      - Data Science Research: research/data-science.md
+      - Quant Finance Research: research/quant-finance.md
+  - Open Source:
+      - Contributions: opensource/contributions.md
+      - Featured: opensource/featured.md
+      - Getting Started: opensource/getting-started.md
+  - Domains:
+      - AI: ai/index.md
+      - Data Science: data-science/index.md
+      - Quant Finance: quant-finance/index.md
+      - Markets: stock-market/index.md
+  - Education:
+      - IITM (BSDS): education/iitm-bsds.md
+      - ISI (PGDSMA): education/isi-pgdsma.md
+      - IIIT (MTech CSE): education/iiit-mtech-cse.md
+      - GU (BTech CSE): education/gu-btech-cse.md
+      - DMI (PGDM): education/dmi-pgdm.md
+      - IRMA (MDP): education/irma-mdp.md
+  - Coursework:
+      - Index: coursework/index.md
+      - Computational Thinking – CT101 – IITM (BSDS): coursework/computational-thinking-ct101-iitm-bsds.md
+      - Mathematics for Data Science – MDS102 – IITM (BSDS): coursework/mathematics-for-data-science-mds102-iitm-bsds.md
+      - Statistics I – STATS111 – IITM (BSDS): coursework/statistics-i-stats111-iitm-bsds.md
+      - Python Programming – PY101 – IITM (BSDS): coursework/python-programming-py101-iitm-bsds.md
+      - Linear Algebra – LA201 – IITM (BSDS): coursework/linear-algebra-la201-iitm-bsds.md
+      - Probability & Statistics II – PST202 – IITM (BSDS): coursework/probability-and-statistics-ii-pst202-iitm-bsds.md
+      - Machine Learning Foundations – ML210 – IITM (BSDS): coursework/machine-learning-foundations-ml210-iitm-bsds.md
+      - Databases & SQL – DB220 – IITM (BSDS): coursework/databases-and-sql-db220-iitm-bsds.md
+      - Probability Theory – ISI-PROB501 – ISI (PGDSMA): coursework/probability-theory-isi-prob501-isi-pgdsma.md
+      - Estimation & Inference – ISI-INF502 – ISI (PGDSMA): coursework/estimation-and-inference-isi-inf502-isi-pgdsma.md
+      - Regression Analysis – ISI-REG503 – ISI (PGDSMA): coursework/regression-analysis-isi-reg503-isi-pgdsma.md
+      - Multivariate Analysis – ISI-MVA504 – ISI (PGDSMA): coursework/multivariate-analysis-isi-mva504-isi-pgdsma.md
+      - Time Series Analysis – ISI-TSA505 – ISI (PGDSMA): coursework/time-series-analysis-isi-tsa505-isi-pgdsma.md
+      - Optimization Basics – ISI-OPT506 – ISI (PGDSMA): coursework/optimization-basics-isi-opt506-isi-pgdsma.md
+  - About: about.md
+  - Contact: contact.md
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  custom_dir: overrides
+  font:
+    text: Roboto
+    code: Fira Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tabs.sticky.mobile
+    - navigation.tabs.underline
+    - navigation.tabs.underline.mobile
+    - navigation.tabs.scrollable
+    - navigation.tabs.scrollable.mobile
+    - navigation.tabs.autoscroll
+    - navigation.top
+    - navigation.footer
+    # - toc.integrate
+    - toc.follow
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.expand
+    - navigation.sections 
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.path
+    - search.highlight
+    - search.suggest
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.share
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Dark Mode
+      primary: gold
+      accent: purple
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Light Mode
+      primary: teal
+      accent: orange
+    
+  # Removed invalid 'icon' and 'social' keys from 'theme' section.
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - footnotes
+  - tables
+  - def_list
+
+extra_css:
+  - assets/custom.css
+extra_javascript:
+  - assets/custom.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/anuxlab
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/anuragprasadguwahati
+      name: LinkedIn
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/
+      name: Twitter
+  portfolio:
+    enabled: true
+    title: "Projects & Work"
+    description: "Showcase of selected projects and achievements."
+# Note: Consider adding 'redirects' plugin to formally map legacy resume/portfolio paths.
+
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        resume.md: index.md
+        portfolio.md: index.md
+        other/about.md: about.md
+        other/contact.md: contact.md
+        other/portfolio.md: index.md
+# Removed legacy case-differing redirect entries (Projects/, Research/, etc.) to eliminate capitalized output dirs on macOS.
+# If required for production, reintroduce selectively after confirming host FS case-sensitivity.
+# TODO: Optionally add mkdocs-macros + dynamic year later.
